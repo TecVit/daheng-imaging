@@ -1,4 +1,4 @@
-import gxipy as gx
+import gxipy as gx # type: ignore
 import cv2
 import time
 
@@ -26,6 +26,29 @@ try:
 
 except Exception as e:
   print("Não foi possível configurar FPS:", e)
+
+try:
+  # =========================
+  # EXPOSIÇÃO
+  # =========================
+  cam.ExposureAuto.set(gx.GxAutoEntry.OFF)
+
+  # em microssegundos
+  cam.ExposureTime.set(25000.0)
+
+  print(f"ExposureTime: {cam.ExposureTime.get()} us")
+
+  # =========================
+  # GANHO
+  # =========================
+  cam.GainAuto.set(gx.GxAutoEntry.ON)
+
+  # ganho em dB
+  # cam.Gain.set(10.0)
+
+  print(f"Gain: {cam.Gain.get()} dB")
+except:
+  print("Não foi possivel configurar a exposição")
 
 try:
   cam.stream_on()
