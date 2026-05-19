@@ -32,19 +32,22 @@ try:
   # EXPOSIÇÃO
   # =========================
   cam.ExposureAuto.set(gx.GxAutoEntry.OFF)
-
-  # em microssegundos
   cam.ExposureTime.set(25000.0)
+
+  # cam.ExposureAuto.set(gx.GxAutoEntry.CONTINUOUS)
+  # cam.GainAuto.set(gx.GxAutoEntry.CONTINUOUS)
+
+  print("ExposureTime MAX:", cam.ExposureTime.get_range())
 
   print(f"ExposureTime: {cam.ExposureTime.get()} us")
 
   # =========================
   # GANHO
   # =========================
-  cam.GainAuto.set(gx.GxAutoEntry.ON)
+  cam.GainAuto.set(gx.GxAutoEntry.OFF)
+  cam.Gain.set(10.0)
 
-  # ganho em dB
-  # cam.Gain.set(10.0)
+  print("Gain MAX:", cam.Gain.get_range())
 
   print(f"Gain: {cam.Gain.get()} dB")
 except:
