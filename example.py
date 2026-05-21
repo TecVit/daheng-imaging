@@ -117,7 +117,7 @@ try:
     # =========================
     # EXIBE IMAGEM
     # =========================
-    cv2.imshow("MER2-302-37GC", numpy_image)
+    cv2.imshow(f"MER2-302-37GC-{time.perf_counter()}", numpy_image)
 
     # sair com Q
     if cv2.waitKey(1) & 0xFF == ord('q'):
